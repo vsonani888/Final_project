@@ -39,7 +39,51 @@ def numberReader(image_file):
     
     print("numbers of images this data set :", len(image_numbers))
 
-    return image_numbers
+    singly_image_numbers = []
+    
+    for i in range(len(image_numbers)):
+
+        temp = []
+        for j in range(len(image_numbers[i])):
+            image_numbers[i][j] = list(image_numbers[i][j])
+
+            for k in range(len(image_numbers[i][j])):
+                if image_numbers[i][j][k] == ' ':
+                    temp.append(0)
+                elif image_numbers[i][j][k] == '+':
+                    temp.append(1)
+                elif image_numbers[i][j][k] == '#':
+                    temp.append(2)
+                else:
+                    temp.append(0)
+
+        singly_image_numbers.append(temp)
+
+    default = len(singly_image_numbers[0])
+
+    for i in range(len(singly_image_numbers)):
+        if len(singly_image_numbers[i]) != default:
+            #print("somehtings wrong", singly_image_numbers[i], i, len(singly_image_numbers[i]), default)
+            diff = default - len(singly_image_numbers[i])
+
+            for j in range(diff):
+                #print("hi")
+                singly_image_numbers[i].append(0)
+
+            #print(len(singly_image_numbers[i]))
+
+    for i in range(len(singly_image_numbers)):
+        if len(singly_image_numbers[i]) != default:
+            print("somehtings wrong", singly_image_numbers[i], i, len(singly_image_numbers[i]), default)
+            diff = len(singly_image_numbers[i]) - default
+
+
+    #print(image_numbers)
+
+    #print(singly_image_numbers)
+    
+
+    return singly_image_numbers
 
 
 def number_labelReader(label_file):
@@ -56,6 +100,8 @@ def number_labelReader(label_file):
         labels.append(int(line))
 
     print("numbers of images this data set :", len(labels))
+
+    return labels
 
 def faceReader(image_file):
     #print("image")
@@ -90,7 +136,24 @@ def faceReader(image_file):
     
     print("numbers of faces this data set :", len(image_numbers))
 
-    return image_numbers
+    singly_image_numbers = []
+    
+    for i in range(len(image_numbers)):
+
+        temp = []
+        for j in range(len(image_numbers[i])):
+            image_numbers[i][j] = list(image_numbers[i][j])
+
+            
+            for k in range(len(image_numbers[i][j])):
+                if image_numbers[i][j][k] == ' ':
+                    temp.append(0)
+                elif image_numbers[i][j][k] == '#':
+                    temp.append(2)
+
+        singly_image_numbers.append(temp)
+
+    return singly_image_numbers
 
 def face_labelReader(label_file):
     #print("label")
@@ -106,6 +169,8 @@ def face_labelReader(label_file):
         labels.append(int(line))
 
     print("numbers of faces this data set :", len(labels))
+
+    return labels
     
     
 
