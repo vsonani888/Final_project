@@ -4,7 +4,7 @@ import os
 def numberReader(image_file):
     #print("image")
     
-    image_file = "digitdata\\" + image_file
+    image_file = "all_data\\" + image_file
 
     with open(image_file, "r") as file:
         lines = file.readlines()
@@ -89,7 +89,7 @@ def numberReader(image_file):
 def number_labelReader(label_file):
     #print("label")
 
-    label_file = "digitdata\\" + label_file
+    label_file = "all_data\\" + label_file
 
     with open(label_file, "r") as file:
         lines = file.readlines()
@@ -106,7 +106,7 @@ def number_labelReader(label_file):
 def faceReader(image_file):
     #print("image")
     
-    image_file = "facedata\\" + image_file
+    image_file = "all_data\\" + image_file
 
     with open(image_file, "r") as file:
         lines = file.readlines()
@@ -158,7 +158,7 @@ def faceReader(image_file):
 def face_labelReader(label_file):
     #print("label")
 
-    label_file = "facedata\\" + label_file
+    label_file = "all_data\\" + label_file
 
     with open(label_file, "r") as file:
         lines = file.readlines()
