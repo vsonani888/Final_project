@@ -83,9 +83,6 @@ if __name__ == "__main__":
     trainingimages = file_reader.numberReader("trainingimages")
     traininglabels = file_reader.number_labelReader("traininglabels")
 
-    validationimages = file_reader.numberReader("validationimages")
-    validationlabels = file_reader.number_labelReader("validationlabels")
-
     testimages = file_reader.numberReader("testimages")
     testlabels = file_reader.number_labelReader("testlabels")
 
