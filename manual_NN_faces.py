@@ -302,7 +302,7 @@ def load(weights_1, weights_2, weights_3, biases_1, biases_2, biases_3):
     
     return weights_1, weights_2, weights_3, biases_1, biases_2, biases_3
 
-def evalulate(testimages, testlabels, weights_1, weights_2, weights_3, biases_1, biases_2, biases_3):
+def evalulate(testimages, testlabels, weights_1, weights_2, weights_3, biases_1, biases_2, biases_3, hidden_1_size, hidden_2_size, output_size):
     
     correct = 0
     test_num = len(testimages)
@@ -349,6 +349,8 @@ def evalulate(testimages, testlabels, weights_1, weights_2, weights_3, biases_1,
             correct += 1
 
     print(correct/test_num)
+
+    return correct/test_num
 
 
 
@@ -414,7 +416,7 @@ if __name__ == "__main__":
         
     #evaluating results
 
-    evalulate(testimages, testlabels, weights_1, weights_2, weights_3, biases_1, biases_2, biases_3)
+    evalulate(testimages, testlabels, weights_1, weights_2, weights_3, biases_1, biases_2, biases_3, hidden_1_size, hidden_2_size, output_size)
 
 
 

@@ -34,13 +34,17 @@ def evaluate(images, labels, new_weights, new_bias):
         if y_predict == y:
             correct += 1
         
-    print(correct/len(images))
+    print("accuracy : ", round((correct/len(images)), 2) * 100)
+    return correct/len(images)
 
 
-def perceptron(images, labels, weights, biases, learning_rate):
-    for epoch in range(10):
+def perceptron(images, labels, weights, biases, learning_rate, epochs):
 
-        print(epoch)
+    print("num of images : ", len(images), "num of labels : ", len(labels))
+
+    for epoch in range(epochs):
+
+        print("Epoch : ", epoch)
 
         for i in range(len(labels)):
             x = images[i]
@@ -59,7 +63,7 @@ def perceptron(images, labels, weights, biases, learning_rate):
             #     if scores[j] > y_predict:
             #         y_predict = j
 
-            y_predict = scores.index(max(scores))
+            # y_predict = scores.index(max(scores))
 
 
             #print(y_predict)
@@ -107,8 +111,9 @@ if __name__ == "__main__":
     for i in range(num_classes):
         biases.append(0.0)
 
+    epochs = 10
 
-    new_weights, new_bias = perceptron(trainingimages, traininglabels, weights, biases, learning_rate)
+    new_weights, new_bias = perceptron(trainingimages, traininglabels, weights, biases, learning_rate, epochs)
 
     evaluate(testimages, testlabels, new_weights, new_bias)
 
